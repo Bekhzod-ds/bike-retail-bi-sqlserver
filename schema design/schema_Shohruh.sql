@@ -87,20 +87,6 @@ WITH(
 	FIRSTROW = 2
 );
 
-
-CREATE TABLE Sales.#Temp_Customers(
-	customer_id INT PRIMARY KEY,
-	first_name VARCHAR(50) NOT NULL,
-	last_name VARCHAR(50) NOT NULL,
-	phone VARCHAR(50),
-	email VARCHAR(256),
-	street VARCHAR(100),
-	city VARCHAR(50),
-	state VARCHAR(50),
-	zip_code VARCHAR(20)
-);
-
-
 CREATE TABLE Sales.Customers(
 	customer_id INT PRIMARY KEY,
 	first_name VARCHAR(50) NOT NULL,
