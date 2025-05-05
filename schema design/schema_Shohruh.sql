@@ -11,9 +11,25 @@ CREATE TABLE Production.Brands(
 	brand_name VARCHAR(100) NOT NULL
 );
 
+BULK INSERT Production.Brands 
+FROM 'D:\Project\brands.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
+);
+
 CREATE TABLE Production.Categories(
 	category_id INT PRIMARY KEY,
 	category_name VARCHAR(100) NOT NULL
+);
+
+BULK INSERT Production.Categories
+FROM 'D:\Project\categories.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
 );
 
 CREATE TABLE Production.Products(
@@ -27,6 +43,14 @@ CREATE TABLE Production.Products(
 	FOREIGN KEY (category_id) REFERENCES Production.Categories(category_id)
 );
 
+BULK INSERT Production.Products 
+FROM 'D:\Project\products.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
+);
+
 CREATE TABLE Sales.Stores(
 	store_id INT PRIMARY KEY,
 	store_name VARCHAR(100) NOT NULL,
@@ -38,6 +62,14 @@ CREATE TABLE Sales.Stores(
 	zip_code VARCHAR(10)
 );
 
+BULK INSERT Sales.Stores 
+FROM 'D:\Project\stores.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
+);
+
 CREATE TABLE Production.Stocks(
 	store_id INT,
 	product_id INT,
@@ -45,6 +77,14 @@ CREATE TABLE Production.Stocks(
 	PRIMARY KEY (store_id, product_id),
 	FOREIGN KEY (store_id) REFERENCES Sales.Stores(store_id),
 	FOREIGN KEY (product_id) REFERENCES Production.Products(product_id)
+);
+
+BULK INSERT Production.Stocks
+FROM 'D:\Project\stocks.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
 );
 
 CREATE TABLE Sales.Customers(
@@ -89,9 +129,9 @@ CREATE TABLE Sales.Orders(
 	order_id INT PRIMARY KEY,
 	customer_id INT,
 	order_status INT,
-	order_date DATE,
-	required_date DATE,
-	shipped_date DATE,
+	order_date DATE null,
+	required_date DATE null,
+	shipped_date DATE null,
 	store_id INT,
 	staff_id INT,
 	FOREIGN KEY (customer_id) REFERENCES Sales.Customers(customer_id),
@@ -110,3 +150,12 @@ CREATE TABLE Sales.Order_items(
 	FOREIGN KEY (product_id) REFERENCES Production.Products(product_id),
 	FOREIGN KEY (order_id) REFERENCES Sales.Orders(order_id)
 );
+
+BULK INSERT Sales.Order_items 
+FROM 'D:\Project\order_items.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2,
+	keepnulls
+);	
