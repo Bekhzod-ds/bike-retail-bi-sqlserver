@@ -48,11 +48,11 @@ CREATE TABLE Production.Stocks(
 );
 
 CREATE TABLE Sales.Customers(
-	customer_id	INT PRIMARY KEY,
+	customer_id INT PRIMARY KEY,
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
 	phone VARCHAR(50),
-	email VARCHAR(50)
+	email VARCHAR(256)
 );
 
 CREATE TABLE Sales.Customer_Address(
@@ -75,6 +75,14 @@ CREATE TABLE Sales.Staff(
 	manager_id INT,
 	FOREIGN KEY (store_id) REFERENCES sales.Stores(store_id),
 	FOREIGN KEY (manager_id) REFERENCES Sales.Staff(staff_id)
+);
+
+BULK INSERT sales.Staff 
+FROM 'D:\Project\staffs.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
 );
 
 CREATE TABLE Sales.Orders(
