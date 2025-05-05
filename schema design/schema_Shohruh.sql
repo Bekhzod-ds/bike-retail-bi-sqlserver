@@ -95,6 +95,8 @@ CREATE TABLE Sales.Customers(
 	email VARCHAR(256)
 );
 
+
+
 CREATE TABLE Sales.Customer_Address(
 	customer_id INT PRIMARY KEY,
 	street VARCHAR(100),
@@ -138,6 +140,41 @@ CREATE TABLE Sales.Orders(
 	FOREIGN KEY (store_id) REFERENCES Sales.Stores(store_id),
 	FOREIGN KEY (staff_id) REFERENCES Sales.Staff(staff_id)
 );
+
+CREATE TABLE Sales.#Orders_Staging(
+	order_id INT PRIMARY KEY,
+	customer_id INT,
+	order_status INT,
+	order_date VARCHAR(50),
+	required_date VARCHAR(50),
+	shipped_date VARCHAR(50),
+	store_id INT,
+	staff_id INT,
+	FOREIGN KEY (customer_id) REFERENCES Sales.Customers(customer_id),
+	FOREIGN KEY (store_id) REFERENCES Sales.Stores(store_id),
+	FOREIGN KEY (staff_id) REFERENCES Sales.Staff(staff_id)
+);
+
+BULK INSERT Sales.#Orders_Staging
+FROM 'D:\Project\orders.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
+);
+
+INSERT INTO Sales.Orders
+SELECT 
+	order_id,
+	customer_id,
+	order_status, 
+	TRY_CAST(order_date AS DATE) as order_date,
+	TRY_CAST(required_date AS DATE) as required_date,
+	TRY_CAST(shipped_date AS DATE) as shipped_date, 
+	store_id,
+	staff_id
+FROM sales.#Orders_Staging
+
 
 CREATE TABLE Sales.Order_items(
 	order_id INT,
