@@ -87,6 +87,20 @@ WITH(
 	FIRSTROW = 2
 );
 
+
+CREATE TABLE Sales.#Temp_Customers(
+	customer_id INT PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	phone VARCHAR(50),
+	email VARCHAR(256),
+	street VARCHAR(100),
+	city VARCHAR(50),
+	state VARCHAR(50),
+	zip_code VARCHAR(20)
+);
+
+
 CREATE TABLE Sales.Customers(
 	customer_id INT PRIMARY KEY,
 	first_name VARCHAR(50) NOT NULL,
@@ -105,6 +119,44 @@ CREATE TABLE Sales.Customer_Address(
 	zip_code VARCHAR(20)
 	FOREIGN KEY (customer_id) REFERENCES Sales.Customers(customer_id)
 );
+
+CREATE TABLE Sales.#Temp_Customers(
+	customer_id INT PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	phone VARCHAR(50),
+	email VARCHAR(256),
+	street VARCHAR(100),
+	city VARCHAR(50),
+	state VARCHAR(50),
+	zip_code VARCHAR(20)
+);
+
+BULK INSERT Sales.#Temp_Customers
+FROM 'D:\Project\customers.csv'
+WITH(
+	ROWTERMINATOR = '\n',
+	FIELDTERMINATOR = ',',
+	FIRSTROW = 2
+);
+
+insert into Sales.Customers
+select 
+	customer_id,
+	first_name, 
+	last_name, 
+	iif(phone = 'NULL', null, phone) phone,
+	email
+from sales.#Temp_Customers
+
+insert into Sales.Customer_Address
+select 
+	customer_id,
+	street,
+	city,
+	state,
+	zip_code
+from sales.#Temp_Customers
 
 CREATE TABLE Sales.Staff(
 	staff_id INT PRIMARY KEY,
