@@ -73,6 +73,7 @@ CREATE TABLE Sales.Staff(
 	active INT,
 	store_id INT,
 	manager_id INT,
+	FOREIGN KEY (store_id) REFERENCES sales.Stores(store_id),
 	FOREIGN KEY (manager_id) REFERENCES Sales.Staff(staff_id)
 );
 
