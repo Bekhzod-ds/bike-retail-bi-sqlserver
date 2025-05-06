@@ -10,4 +10,4 @@ JOIN sales.Order_items oi
 ON ord.order_id = oi.order_id
 GROUP BY YEAR(order_date), DATEPART(QUARTER, order_date)
 
---This view Calculates Total sales by quarter in each year. This allows for tracking trends over a period of time to see how well a company has been performing
+--This view Calculates Total sales by quarter in each year. This allows for tracking trends over a period of time to see how well a company has been performing. It also migh help find correlations between performance on a specific quarter of a year and an event that previously was thought to have to relation to sales
