@@ -5,7 +5,7 @@ rev.total
 from sales.stores s
 join (
 select o.store_id,
-sum(oi.list_price) as total
+     sum((oi.quantity * oi.list_price) * (1 - oi.discount)) as total
 from sales.order_items oi
 join sales.orders o
 on o.order_id=oi.order_id
