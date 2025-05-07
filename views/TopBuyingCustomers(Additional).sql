@@ -9,3 +9,5 @@ JOIN sales.Order_items oi
 ON ord.order_id = oi.order_id
 GROUP BY CONCAT(first_name, ' ', last_name)
 ORDER BY TotalSales DESC;
+
+--This view lists top 100 customers by sales. This allows us to identify most profitable customers and grant them different kinds of perks like discounts or bonuses to retain those customemrs
