@@ -8,3 +8,5 @@ on o.product_id = p.product_id
 join Production.Brands b
 on p.brand_id = b.brand_id
 group by brand_name
+
+--This view allows us to see the popularity of each brand by sold products of that brand. This may help the company identify whose products are best to sell and put more focus on that, and those brands that can be ignored due to their low popularity among customers
