@@ -1,6 +1,6 @@
 create view vw_RegionalTrends as (
-select s.city,
-s.state,
+select s.state,
+     s.city,
 rev.total
 from sales.stores s
 join (
