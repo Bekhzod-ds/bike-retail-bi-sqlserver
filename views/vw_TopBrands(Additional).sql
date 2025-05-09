@@ -1,6 +1,8 @@
 create view vw_TopBrands as
 select 
 	brand_name,
+	count(distinct order_id) CountOfOrders,
+	count(*) ProductsSold,
 	sum((quantity*o.list_price)*(1-discount)) TotalSales
 from sales.Order_items o
 join Production.Products p
