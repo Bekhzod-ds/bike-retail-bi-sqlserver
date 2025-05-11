@@ -1,4 +1,4 @@
-create proc sp_CalculateStoreKPI @storeID int
+create proc sp_StoreKPI @storeID int
 as
 with CTEMultipleVisits as(
 select
