@@ -11,3 +11,4 @@ ON ord.order_id = oi.order_id
 GROUP BY YEAR(order_date), DATEPART(QUARTER, order_date)
 
 --This view Calculates Total sales by quarter in each year. This allows for tracking trends over a period of time to see how well a company has been performing. It also migh help find patterns and correlations between performance on a specific quarter of a year and an event that previously was thought to have no relation to sales
+--By tracking sales data, not only can we see how's the company has been performing, but alsp we can forecast future sales and make informed decisions based on them, such as allocation of resources, budgeting and other strategies that help increase revenue
