@@ -25,5 +25,5 @@ join vw_StoreSalesSummary sss
 on cte.store_id = sss.store_id
 cross apply (select count(*) CountOfStaff from sales.Staff where store_id = sss.store_id) staff;
 
---This Stored Procedure show us information about a specific store. It shows, its is, name, revenue it has made, count of order made in that store, AOV, retention rate and also how many workers there are.
---
+--This Stored Procedure show us information about a specific store. It shows, its is, name, revenue it has made, count of order made in that store, AOV, retention rate(rate of customers that return to the shop to make even more purchases), and also how many workers there are.
+--this insight helps ou identify strong and weak stores, their effectiveness and likeability. For example, company might wanna improve customer service, or offer discounts or bonuses to improveretention rate of customers.
