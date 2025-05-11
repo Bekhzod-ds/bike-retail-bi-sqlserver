@@ -24,3 +24,6 @@ from CTECountRentn cte
 join vw_StoreSalesSummary sss
 on cte.store_id = sss.store_id
 cross apply (select count(*) CountOfStaff from sales.Staff where store_id = sss.store_id) staff;
+
+--This Stored Procedure show us information about a specific store. It shows, its is, name, revenue it has made, count of order made in that store, AOV, retention rate and also how many workers there are.
+--
