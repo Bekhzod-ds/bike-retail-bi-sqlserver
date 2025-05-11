@@ -10,4 +10,4 @@ ON ord.order_id = oi.order_id
 GROUP BY CONCAT(first_name, ' ', last_name)
 ORDER BY TotalSales DESC;
 
---This view lists top 100 customers by sales. This allows us to identify most profitable customers and grant them different kinds of perks like discounts or bonuses to retain those clients for longer
+--This view lists top 100 customers by sales. This allows us to identify customers that bring s the most profits compared to other customers and grant them different kinds of perks like discounts or bonuses to retain those clients for longer. This way they'll be encouraged to purchase goods from the company
