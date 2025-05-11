@@ -15,4 +15,5 @@ GROUP BY
 	store_name;
 
 --This view allows us to see the performance (Revenue, Number of orders, and AOV) of each of the company's stores.
+--The number of orders allows us to see which store has how many orders and compare them to see which one is doing best. And offer incentives in the best performing store, not only to cutomers, but maybe to staff as well
 --AOV or Average Order Value is a crucial KPI indicator as it allows the company analyze customer spending behavior. This insight may help develop strategies to make customers purchase above that Average by setting a minimum cost for free shipping, or a bonus product, or a discount or sth else. In this case we have AOV of 4900, 4600 and 4700 for three stores store. We could offer free shipping or a discount if the order price is above 5000.
