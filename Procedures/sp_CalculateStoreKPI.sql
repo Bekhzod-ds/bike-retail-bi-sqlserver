@@ -2,7 +2,7 @@ create proc sp_StoreKPI @storeID int = null
 as
 	if @storeID is null
 	begin
-			with CTEMultipleVisits as(
+		with CTEMultipleVisits as(
 		select
 			store_id,
 			Customer_id
