@@ -1,6 +1,6 @@
 CREATE VIEW vw_StoreSalesSummary AS
 SELECT 
-	store_id,
+	st.store_id,
 	store_name, 
 	round(sum((quantity * list_price)*(1-discount)), 2) Revenue, 
 	COUNT(DISTINCT ord.order_id) Orders,
@@ -11,7 +11,7 @@ ON st.store_id = ord.store_id
 JOIN Sales.Order_items oi
 ON ord.order_id = oi.order_id
 GROUP BY 
-	store_id,
+	st.store_id,
 	store_name;
 
 --This view allows us to see the performance (Revenue, Number of orders, and AOV) of each of the company's stores.
