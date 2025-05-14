@@ -103,7 +103,7 @@ Each KPI was calculated using the created views and procedures.
 
 - Created a job to auto-load updated `.csv` files
 - Scheduled to run weekly
-- Executes `sp_CalculateStoreKPI` and `sp_GenerateRestockList`
+- Executes `sp_GetcustomerProfile` and `sp_GenerateRestockList`
 - Results are saved in tables
 
  *See screenshots in* `/Automation/screenshots.md`
