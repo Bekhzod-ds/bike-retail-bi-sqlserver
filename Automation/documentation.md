@@ -72,9 +72,10 @@ Folder path: D:\Project
 ‌	quantity INT,
 ‌	list_price DECIMAL(10, 2),
 ‌	discount DECIMAL(10, 2),
-‌	PRIMARY KEY(order_id, item_id),
-Additional Notes:
+‌	PRIMARY KEY(order_id, item_id)
 -----------------
+## Additional Notes:
+
 - Ensure the SQL Server Agent is running.
 - Make sure SQL Server has permission to access the folder.
 - BULK INSERT will fail if path or permissions are incorrect.
