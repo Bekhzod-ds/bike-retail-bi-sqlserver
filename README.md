@@ -106,7 +106,7 @@ Each KPI was calculated using the created views and procedures.
 - Executes `sp_GetcustomerProfile` and `sp_GenerateRestockList`
 - Results are saved in tables
 
- *See screenshots in* `/Automation/screenshots.md`
+ *See screenshots in* `/Automation/screenshots.md` and `/Automation/Diagram.md`
 
 ---
 
