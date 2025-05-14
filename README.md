@@ -110,13 +110,14 @@ Each KPI was calculated using the created views and procedures.
 
 ---
 
-##  Files in This Repository
+###    Files in This Repository
 
-/Automation/ .... – Screenshots of automation job/needed queries for the automation and the diagrams
-/schema design/  .... - All table scripts done by 4 project members and the final table desing fitting in NF standards
-/views/ ... - All view scripts
-/Procedures/ ... - All stored procedures script
-
+| Folder / File        | Description |
+|----------------------|-------------|
+| `/Automation/`       | Screenshots of SQL Agent job setup, automation query scripts, and ER diagrams |
+| `/Schema Design/`    | Individual table creation scripts by each project member and the final normalized schema (3NF) |
+| `/Views/`            | All SQL view scripts used for reporting and KPI analysis |
+| `/Procedures/`       | All stored procedure scripts for business logic and automation |
 ---
 
 ## Possible Future Improvements
