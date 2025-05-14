@@ -35,11 +35,13 @@ Type: Transact-SQL
 
 ## File Info:
 ----------
+### 1.
 - Folder path: D:\Project
 - CSV file: new_orders.csv
 - Format: Comma-separated, with header row
 
-Folder path: D:\Project
+### 2.
+- Folder path: D:\Project
 - CSV file: new_order_items.csv
 - Format: Comma-separated, with header row
 
@@ -73,8 +75,9 @@ Folder path: D:\Project
 ‌	list_price DECIMAL(10, 2),
 ‌	discount DECIMAL(10, 2),
 ‌	PRIMARY KEY(order_id, item_id)
------------------
+
 ## Additional Notes:
+-----------------
 
 - Ensure the SQL Server Agent is running.
 - Make sure SQL Server has permission to access the folder.
