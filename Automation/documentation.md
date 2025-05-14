@@ -35,12 +35,12 @@ Type: Transact-SQL
 
 ## File Info:
 ----------
-### 1st table.
+### 1.
 - Folder path: D:\Project
 - CSV file: new_orders.csv
 - Format: Comma-separated, with header row
 
-### 2nd table.
+### 2.
 - Folder path: D:\Project
 - CSV file: new_order_items.csv
 - Format: Comma-separated, with header row
