@@ -1,5 +1,5 @@
 # SQL Server Agent Job Setup Documentation
-========================================
+=================================
 
 Job Name: Load_CSV_and_Log_Audit
 
